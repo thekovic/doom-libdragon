@@ -71,7 +71,9 @@ void I_FinishUpdate(void)
     rdpq_tex_blit(_dc, 0, 0, NULL);
 
 #ifndef NO_FPS_COUNTER
-    rdpq_text_printf(NULL, FONT_BUILTIN_DEBUG_MONO, 16, 20, "FPS: %f", display_get_fps());
+    heap_stats_t heap_stats;
+    sys_get_heap_stats(&heap_stats);
+    rdpq_text_printf(NULL, FONT_BUILTIN_DEBUG_MONO, 16, 20, "FPS: %f\nMEM: %i/%i", display_get_fps(), heap_stats.used / 1024, heap_stats.total / 1024);
 #endif
 
     rdpq_detach_show();
