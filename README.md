@@ -1,6 +1,6 @@
-# LibdragonDOOM
+# DOOM-libdragon
 
-LibdragonDOOM is a source port of classic PC DOOM 1/2 to the Nintendo 64 using the libdragon SDK.
+DOOM-libdragon is a source port of classic PC DOOM 1/2 to the Nintendo 64 using the libdragon SDK.
 
 ## Current features:
 
@@ -24,17 +24,17 @@ Setup libdragon `preview` branch based on instructions here: https://github.com/
 
 Get a copy of an IWAD of a supported version of DOOM (DOOM 1 shareware version, DOOM 1 registered version, Ultimate DOOM, DOOM 2, Plutonia, TNT).
 
-Set two variables in the Makefile:
+Two variables need to be set in the Makefile:
 
-- `IWAD_DIRECTORY` -- the path to the directory that contains your IWAD file
+- `IWAD_DIR` -- Path to the directory that contains your IWAD file. By default, `iwads` folder in the repository root is used.
 
-- `IWAD_PREFIX` -- the actual IWAD filename prefix (one of `doom1` (Shareware version), `doomr` (Registered version), `doom` (Ultimate DOOM), `doom2`, `plutonia`, `tnt` - these are case sensitive. Must be lowercase and your WAD filename must be lowercase i.e. `doom2.wad`)
+- `IWAD` -- The actual IWAD file name. Options are: `doom1` (Shareware version), `doomr` (Registered version), `doom` (Ultimate DOOM), `doom2`, `plutonia`, `tnt`. These names are case sensitive and must be lowercase and your WAD filename must be lowercase (i.e. `doom2.wad`). By default, `doom1` is used and the shareware WAD is provided in the repository for convenience.
 
-And run `make`.
+For example, to build DOOM 2, run `make IWAD=doom2`.
 
 ## Saving the game (note: feature review needed)
 
-LibdragonDOOM uses the Controller Pak to save and load your game progress from the Save Game / Load Game menu options.
+DOOM-libdragon uses the Controller Pak to save and load your game progress from the Save Game / Load Game menu options.
 
 One savegame slot is presented, mapped to a single note on the Controller Pak.
 
